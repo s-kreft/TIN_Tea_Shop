@@ -1,6 +1,7 @@
 body {
     padding: 0%;
     margin: 0%;
+    background-color: darkcyan;
 }
 header {
     text-align: center;
@@ -62,3 +63,22 @@ header {
 .subnav:hover .subnav_content {
     display: block;
   }
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 20px;
+    justify-content: center;
+}
+.grid_item {
+  background-color: darkgoldenrod;
+}
+
+.grid_item_1 {
+    display: flex;
+    text-align:center;
+}
+.product-name {
+    /* text-align: right; */
+}
