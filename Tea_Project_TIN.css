@@ -82,7 +82,12 @@ header {
     flex-direction: row;
 }
 
-img {
+.grid_item img  {
+    object-fit: fill;
+    height: 150px;
+    width: auto;
+}
+.cart_item img  {
     object-fit: fill;
     height: 150px;
     width: auto;
@@ -101,9 +106,7 @@ img {
     flex-direction: row;
   flex: auto;
 }
-.main_image {
-    height: 100%;
-}
+
 #sum {
     font-size: 24px;
     text-align: center;
@@ -123,4 +126,29 @@ table {
 }
 table tr {
     background-color: rgb(170, 170, 169);
+}
+#main_text {
+    text-align: center;
+    text-decoration: solid;
+    background-color: black;
+    font-size: 24px;
+    color: white;
+}
+.main_image {
+    height: 300px;
+    width: 100%;
+    background-color: black;
+}
+.main_image img {
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#contact_info {
+    text-align: center;
+    font-size: 24px;
+    
 }
