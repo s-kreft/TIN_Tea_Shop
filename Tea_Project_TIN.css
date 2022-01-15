@@ -1,7 +1,7 @@
 body {
     padding: 0%;
     margin: 0%;
-    background-color: darkcyan;
+    background-color: rgb(161, 158, 124);
 }
 header {
     text-align: center;
@@ -41,13 +41,13 @@ header {
     margin: 0;
 }
  .navbar a:hover, .subnav:hover .subnavbtn {
-    background-color: red;
+    background-color: rgb(124, 172, 47);
 }
 .subnav_content {
     display: none;
     position: absolute;
     left: 0;
-    background-color: red;
+    background-color: rgb(124, 172, 47);
     width: 100%;
     z-index: 1;
 }
@@ -72,12 +72,14 @@ header {
     justify-content: center;
 }
 .grid_item {
-  background-color: darkgoldenrod;
+  background-color: rgb(132, 164, 168);
   display: flex;
   text-align:center;
 }
 .product-name {
     flex: auto;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 img {
@@ -88,4 +90,37 @@ img {
 
 .item_id {
     display: none;
+}
+.label {
+    background-color: antiquewhite;
+    text-align: center;
+    font-size: large;
+    font-family: fantasy;
+}
+.price {
+    flex-direction: row;
+  flex: auto;
+}
+.main_image {
+    height: 100%;
+}
+#sum {
+    font-size: 24px;
+    text-align: center;
+}
+#sum_label {
+    font-size: 24px;
+    text-align: center;
+}
+
+table {
+   position: relative;
+   justify-content: center;
+   width: 100%;
+   text-align: center;
+   font-size: large;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+table tr {
+    background-color: rgb(170, 170, 169);
 }

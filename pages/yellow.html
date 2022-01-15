@@ -10,7 +10,7 @@
     <body>
         <header>
             <h1>
-                Sklep z Herbatą
+                Tea Shop
             </h1>  
         </header>
 
@@ -27,34 +27,17 @@
                 </div>
             </div>
             <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart</a>       
             </div>
         </div>
         
-        <div>
+        <div class='label'>
             <p>
                Yellow Tea
             </p>
         </div>
 
         <div id="grid_container">
-            <div class="grid_item">
-                <img src="pictures/yellow-pics/huang-xiao.jpg" alt="Huang Xiao">
-                <p class="product-name"> Huang Xiao  <br>
-                20 zł / 50g</p>
-                <button onclick="">Dodaj do koszyka</button>
-            </div>
-            <div class="grid_item">
-                <img src="pictures/yellow-pics/junshan-yin-zhen-2021.jpg" alt="Junshan Yin Zhen 2021">
-                <p class="product-name"> Junshan Yin Zhen 2021 <br>
-                175 zł / 50g</p>
-                <button>Dodaj do koszyka</button>
-            </div>
-            <div class="grid_item">
-                <img src="pictures/yellow-pics/golden-dragon-organic.jpg" alt="Golden Dragon Organic">
-                <p class="product-name"> Golden Dragon Organic <br>
-                39 zł / 50g</p>
-                <button>Dodaj do koszyka</button>
-            </div>
             
         </div>
 
@@ -64,11 +47,12 @@
                 <img src="/pages" alt="description">
                 <p class="product-name"> <br>
                  </p>
-                 <span>0 zł / 50g</span>
-                <button onclick="addToCart(this)">Dodaj do koszyka</button>
+                 <span class='price'>cena</span>
+                <button onclick="addToCart(this)">Add to Cart</button>
             </div>
         </template>
         <script>const current_page = "Yellow Tea";</script>
         <script src="../logic.js"></script>
+        <script>displayProducts();</script>
     </body>
 </html>

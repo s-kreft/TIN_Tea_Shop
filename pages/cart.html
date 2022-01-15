@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="../Tea_Project_TIN.css">
+        <title>
+            Tea Shop
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Tea Shop
+            </h1>  
+        </header>
+
+        <div class='navbar'>
+            <a href="../index.html">Home</a>
+            <div class='subnav'>
+                <button class='subnavbtn'>Tea</button>
+                <div class='subnav_content'>
+                    <a href="white.html">White</a>
+                    <a href="yellow.html">Yellow</a>
+                    <a href="green.html">Green</a>
+                    <a href="red.html">Red</a>
+                    <a href="black.html">Black</a>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+            <a href="pages/cart.html">Cart</a>
+            </div>
+        </div>
+        
+        <div class='label'>
+            <p>
+               Cart
+            </p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id='table_body'>
+
+            </tbody>
+        </table>
+        <div>
+            <p id='sum_label'>
+                Price Total: 
+                <span id='sum'> </span>
+                PLN
+            </p>
+        </div>
+
+        <template id="template_cart">
+            <tr class="cart_item">
+                <td></td>
+                <td></td>
+                <td><img src="" alt="Product image"></td>
+                <td></td>
+                <td></td>
+                <td>50 g</td>
+                <td> <button onclick="removeFromCart(this)">X</button></td>
+            </tr>
+        </template>
+        <script>const current_page = "Cart";</script>
+        <script src="../logic.js"></script>
+        <script>displayOrderItems();</script>
+    </body>
+</html>

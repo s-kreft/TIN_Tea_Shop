@@ -50,7 +50,7 @@ var product33 = new Product(33, "Taiwan Wuyi Hongcha 2020", "Black Tea", "pictur
 var product34 = new Product(34, "Golden Pu Erh", "Red Tea", "pictures/red-pics/golden-pu-erh.jpg", 43);
 var product35 = new Product(35, "Pu Erh Special", "Red Tea", "pictures/red-pics/pu-erh-special.jpg", 18);
 var product36 = new Product(36, "Pu Erh Organic", "Red Tea", "pictures/red-pics/pu-erh-organic.jpg", 16);
-var product37 = new Product(37, "pictures/red-pics/liuan-heicha-2009.jpg", "Red Tea", "pictures/red-pics/liuan-heicha-2009.jpg", 41);
+var product37 = new Product(37, "Liuan Heicha 2009", "Red Tea", "pictures/red-pics/liuan-heicha-2009.jpg", 41);
 var product38 = new Product(38, "Dongguo Gushu Pu Erh 2020", "Red Tea", "pictures/red-pics/dongguo-gushu-pu-erh-2020.jpg", 115);
 var product39 = new Product(39, "Guangxi Liu Bao", "Red Tea", "pictures/red-pics/guangxi-liu-bao.jpg", 19);
 var product40 = new Product(40, "Sunyishun Liuan Heicha 1998", "Red Tea", "pictures/red-pics/sunyishun-liuan-heicha-1998.jpg", 165);
@@ -67,29 +67,42 @@ for(let i = 0; i < 3; i++ ) {
 }
 
 console.log(products);
-var template_item = document.getElementById('template_item');
-var grid_container = document.getElementById('grid_container');
-for(let i = 0; i < products.length; i++) {
-    
-    var product = products[i];
-    var clone = template_item.content.cloneNode(true);
-    if(current_page == product.description ) {
-        clone.querySelector('.item_id').textContent=product.id;
-        clone.querySelector('p').textContent=product.name;
-        clone.querySelector('img').src = product.image;
-        clone.querySelector('span').textContent = product.price;
+function displayProducts() {
+    var template_item = document.getElementById('template_item');
+    var grid_container = document.getElementById('grid_container');
+    for(let i = 0; i < products.length; i++) {
+        
+        var product = products[i];
+        var clone = template_item.content.cloneNode(true);
+        if(current_page == product.description ) {
+            clone.querySelector('.item_id').textContent=product.id;
+            clone.querySelector('p').textContent=product.name;
+            clone.querySelector('img').src = product.image;
+            clone.querySelector('span').textContent = product.price + ' PLN';
 
-        grid_container.appendChild(clone);
+            grid_container.appendChild(clone);
+        }
     }
 }
-let cart = new Array;
+
+// let cart = new Array;
 
 function addToCart(el) {
-var product_id = el.parentElement.querySelector('.item_id').textContent;
-var product_cart = findByID(parseInt(product_id));
+    var product_id = el.parentElement.querySelector('.item_id').textContent;
+    var shop_item = findByID(parseInt(product_id));
 
-cart.push(product_cart);
-console.log(cart);
+    if(typeof localStorage.cart !== 'undefined') {
+        var cart = JSON.parse(localStorage.cart);
+    }
+    else {
+        var cart = new Array;
+    }
+
+    cart.push(shop_item);
+
+    localStorage.cart = JSON.stringify(cart);
+    console.log(cart);
+
 }
 function findByID(product_id) {
     var temp;
@@ -99,6 +112,49 @@ function findByID(product_id) {
         }
     });
     return temp;
+}
+function displayOrderItems() {
+    var template_cart = document.getElementById('template_cart');
+    var table_body = document.getElementById('table_body');
+
+    var counter = 1;
+    JSON.parse(localStorage.cart).forEach(element => {
+        var clone = template_cart.content.cloneNode(true);
+        clone.querySelectorAll('td')[0].textContent = counter;
+        clone.querySelectorAll('td')[1].textContent = element.name;
+        clone.querySelector('img').src = element.image;
+        clone.querySelectorAll('td')[3].textContent = element.description;
+        clone.querySelectorAll('td')[4].textContent = element.price;
+
+        table_body.appendChild(clone);
+        counter++;
+    });
+    var sumElement = document.querySelector('#sum');
+    sumElement.textContent = getTotalPrice();
+}
+
+function removeFromCart(el) {
+    var cart = JSON.parse(localStorage.cart);
+    var id = parseInt(el.parentElement.parentElement.querySelectorAll('td')[0].textContent) - 1;
+    cart.splice(id, 1);
+    localStorage.cart = JSON.stringify(cart);
+    clearDisplayItems();
+    displayOrderItems();
+    console.log(id);
+}
+
+function clearDisplayItems() {
+    var table_body = document.getElementById('table_body');
+    table_body.innerHTML = '';
+}
+
+function getTotalPrice() {
+    var cart = JSON.parse(localStorage.cart);
+    var sum =0;
+    cart.forEach(product => {
+        sum += product.price;
+    });
+    return sum;
 }
 
 
