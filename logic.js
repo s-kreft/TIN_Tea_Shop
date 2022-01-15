@@ -21,23 +21,17 @@ for(let i = 0; i < 3; i++ ) {
     console.log(products[i]);
 }
 
-// const template_item = document.querySelector('.template_item');
-// const grid_container = document.querySelector('.grid_container');
-
-// var item = template_item.content.cloneNode(true);
-// item.querrySelector('product-name').textContent("Testowa herba");
-
-// grid_container.appendChild(item);
-// item.querySelector('product-name').textContent("Testowa herbata");
-// grid_container.appendChild(item);
-
+console.log(products);
 var template_item = document.getElementById('template_item');
 var grid_container = document.getElementById('grid_container');
+for(let i = 0; i < products.length; i++) {
+    var product = products[i];
+    var clone = template_item.content.cloneNode(true);
+    clone.querySelector('p').textContent=product.name;
+    clone.querySelector('img').src = product.image;
+    clone.querySelector('span').textContent = product.price;
 
-var clone = template_item.content.cloneNode(true);
-clone.querySelector('p').textContent='Testowa Herbata';
-clone.querySelector('img').src = 'pictures/yellow-pics/golden-dragon-organic.jpg';
-clone.querySelector('span').textContent = '52';
 
+    grid_container.appendChild(clone);
 
-grid_container.appendChild(clone);
+}
