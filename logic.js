@@ -27,11 +27,31 @@ var grid_container = document.getElementById('grid_container');
 for(let i = 0; i < products.length; i++) {
     var product = products[i];
     var clone = template_item.content.cloneNode(true);
+    clone.querySelector('.item_id').textContent=product.id;
     clone.querySelector('p').textContent=product.name;
     clone.querySelector('img').src = product.image;
     clone.querySelector('span').textContent = product.price;
 
 
     grid_container.appendChild(clone);
-
 }
+let cart = new Array;
+
+function addToCart(el) {
+var product_id = el.parentElement.querySelector('.item_id').textContent;
+var product_cart = findByID(parseInt(product_id));
+
+cart.push(product_cart);
+console.log(cart);
+}
+function findByID(product_id) {
+    var temp;
+    products.forEach(product => {
+        if(product_id === product.id) {
+            temp = product;
+        }
+    });
+    return temp;
+}
+
+

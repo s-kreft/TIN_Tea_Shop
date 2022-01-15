@@ -41,7 +41,7 @@
                 <img src="pictures/yellow-pics/huang-xiao.jpg" alt="Huang Xiao">
                 <p class="product-name"> Huang Xiao  <br>
                 20 zł / 50g</p>
-                <button>Dodaj do koszyka</button>
+                <button onclick="">Dodaj do koszyka</button>
             </div>
             <div class="grid_item">
                 <img src="pictures/yellow-pics/junshan-yin-zhen-2021.jpg" alt="Junshan Yin Zhen 2021">
@@ -60,11 +60,12 @@
 
         <template id="template_item">
             <div class="grid_item">
+                <div class="item_id"></div>
                 <img src="/pages" alt="description">
                 <p class="product-name"> <br>
                  </p>
                  <span>0 zł / 50g</span>
-                <button>Dodaj do koszyka</button>
+                <button onclick="addToCart(this)">Dodaj do koszyka</button>
             </div>
         </template>
         <script src="../logic.js"></script>

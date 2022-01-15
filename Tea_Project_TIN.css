@@ -85,3 +85,7 @@ img {
     height: 150px;
     width: auto;
 }
+
+.item_id {
+    display: none;
+}
